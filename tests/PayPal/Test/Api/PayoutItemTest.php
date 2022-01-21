@@ -20,7 +20,14 @@ class PayoutItemTest extends TestCase
      */
     public static function getJson()
     {
-        return '{"recipient_type":"TestSample","amount":' .CurrencyTest::getJson() . ',"note":"TestSample","receiver":"TestSample","sender_item_id":"TestSample"}';
+        return '{
+                    "recipient_type":"TestSample",
+                    "amount":' .CurrencyTest::getJson() . ',
+                    "note":"TestSample",
+                    "receiver":"TestSample",
+                    "sender_item_id":"TestSample",
+                    "recipient_wallet":"TestSample"
+                }';
     }
 
     /**
@@ -46,6 +53,7 @@ class PayoutItemTest extends TestCase
         $this->assertNotNull($obj->getNote());
         $this->assertNotNull($obj->getReceiver());
         $this->assertNotNull($obj->getSenderItemId());
+        $this->assertNotNull($obj->getRecipientWallet());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -61,6 +69,7 @@ class PayoutItemTest extends TestCase
         $this->assertEquals($obj->getNote(), "TestSample");
         $this->assertEquals($obj->getReceiver(), "TestSample");
         $this->assertEquals($obj->getSenderItemId(), "TestSample");
+        $this->assertEquals($obj->getRecipientWallet(), "TestSample");
     }
 
     /**
