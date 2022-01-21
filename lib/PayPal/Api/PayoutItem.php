@@ -19,6 +19,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string note
  * @property string receiver
  * @property string sender_item_id
+ * @property string recipient_wallet
  */
 class PayoutItem extends PayPalResourceModel
 {
@@ -135,6 +136,29 @@ class PayoutItem extends PayPalResourceModel
     public function getSenderItemId()
     {
         return $this->sender_item_id;
+    }
+
+    /**
+     * The recipient wallet. Selects how to receive payment from payment options.
+     *
+     * @param string $recipient_wallet
+     *
+     * @return $this
+     */
+    public function setRecipientWallet($recipient_wallet)
+    {
+        $this->recipient_wallet = $recipient_wallet;
+        return $this;
+    }
+
+    /**
+     * The recipient wallet. Selects how to receive payment from payment options.
+     *
+     * @return string
+     */
+    public function getRecipientWallet()
+    {
+        return $this->recipient_wallet;
     }
 
     /**
